@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 600px;
+  padding: 30px 50px;
+  background-color: #fdbcb4;
+  border: 5px solid #58111a;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.5s ease;
+}
+
+.container h1 {
+  font-size: 2.5em;
+  line-height: 40px;
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+h1 .header-one {
+  color: white;
+  text-shadow: 0px 0px 3px #bc8f8f;
+}
+
+h1 .header-two {
+  color: #58111a;
+}
+
+p {
+  font-size: 1.35em;
+  color: #3b3c36;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.user-choices {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.pass-label {
+  font-size: 1.1em;
+  color: #3b3c36;
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.toggles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.each-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.each-toggle .choice-span {
+  font-weight: 600;
+  color: #3b3c36;
+}
+
+/*Start Toggle Style*/
+.toggle-input {
+  visibility: hidden;
+}
+
+.toggle-label {
+  position: absolute;
+  width: 60px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #58111a;
+  margin-left: 80px;
+  cursor: pointer;
+}
+
+.toggle-circle {
+  display: block;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: #ffe4e1;
+  border-radius: 50%;
+  top: 3px;
+  right: 3px;
+}
+
+.toggle-input:not(:checked) + .toggle-label {
+  background-color: #ccc;
+}
+
+.toggle-input:checked + .toggle-label .toggle-circle {
+  animation: toggleOff 0.3s linear forwards;
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-circle {
+  animation: toggleOn 0.3s linear forwards;
+}
+
+@keyframes toggleOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-26px);
+  }
+}
+
+@keyframes toggleOff {
+  0% {
+    transform: translateX(-25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/*End Toggle Style*/
+
+#password-length {
+  width: 70px;
+  padding: 5px;
+  font-size: 1em;
+  border: 2px solid #58111a;
+  border-radius: 4px;
+  background-color: #ffe4e1;
+  color: #3d0c02;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#password-length:focus {
+  border-color: #bc8f8f;
+}
+
+.generator-btn {
+  background-color: #3d0c02;
+  color: aliceblue;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.generator-btn:hover {
+  background-color: #58111a;
+  transition: 0.3s ease;
+}
+
+.passwords-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #c08081;
+  padding-top: 30px;
+  position: relative;
+}
+
+.passwords-container div {
+  width: 47%;
+  height: 45px;
+  background-color: #ffe4e1;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3d0c02;
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.copy-btn {
+  font-weight: 550;
+  border: 2px solid #3b3c36;
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin: 4px auto 0;
+  background-color: #ffe4e1;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.callout {
+  position: absolute;
+  background-color: #722f37;
+  color: white;
+  padding: 6px;
+  top: -18px;
+  right: 43.5%;
+  font-size: 1rem;
+}
+/*The down arrow of the callout*/
+.callout::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Position it below the callout */
+  left: 50%; /* Center it horizontally */
+  margin-left: -5px; /* Adjust for half the width of the arrow */
+  border-width: 5px; /* Size of the arrow */
+  border-style: solid;
+  border-color: #722f37 transparent transparent transparent; /* Arrow color */
+}
